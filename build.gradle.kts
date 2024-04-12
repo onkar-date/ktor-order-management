@@ -8,6 +8,7 @@ plugins {
     kotlin("jvm") version "1.9.23"
     id("io.ktor.plugin") version "2.3.9"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.23"
+    id("io.kotest.multiplatform") version "5.0.2"
 }
 
 group = "com.example"
@@ -32,10 +33,21 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.2.1")
     implementation("mysql:mysql-connector-java:$mysqlVersion")
+
+//    Exposed
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-java-time:0.38.1")
+
+//    Koin
+    implementation("io.insert-koin:koin-core:3.2.2")
+    implementation("io.insert-koin:koin-ktor:3.2.2")
+
+//    Validation
+    implementation("io.konform:konform-jvm:0.4.0")
+
+//    Testing
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
     testImplementation("org.mockito:mockito-core:3.11.2")

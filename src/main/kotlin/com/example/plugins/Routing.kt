@@ -10,10 +10,8 @@ import io.ktor.server.application.*
 import io.ktor.server.routing.*
 
 fun Application.configureRouting() {
-    val orderService = OrderService(OrderDAO)
-    val addressService = AddressService(AddressDAO())
     routing {
-        orderRouting(orderService)
-        addressRouting(addressService)
+        orderRouting()
+        addressRouting()
     }
 }

@@ -1,9 +1,11 @@
 package com.example
 
+import com.example.modules.appModule
 import com.example.plugins.*
 import com.typesafe.config.ConfigFactory
 import io.ktor.server.application.*
 import org.jetbrains.exposed.sql.Database
+import org.koin.ktor.plugin.Koin
 
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
@@ -12,6 +14,10 @@ fun main(args: Array<String>) {
 fun Application.module() {
     configureSerialization()
     configureRouting()
+
+    install(Koin) {
+        modules(appModule)
+    }
 
     val config = ConfigFactory.load()
     try {
